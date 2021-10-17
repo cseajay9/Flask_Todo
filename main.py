@@ -1,8 +1,8 @@
 
 from flask import Flask
 from flask import request
-todos=list()
-counter =0
+todos = list()
+counter = 0
 
 app = Flask(__name__)
 
@@ -22,9 +22,6 @@ def add_todo():
     counter += 1
     data["id"]=counter
     todos.append(data)
-    print("type of data:",type(data))
-    print("data from request", data)
-
     return "todo added successfully"
 
 @app.route("/update_todo/<int:id>", methods=['PUT'])
@@ -46,9 +43,6 @@ def delete_todo(todo_id):
             return "deleted successfully"
 
     return "data not found..."
-
-
-
 
 app.run(debug=True)
 
